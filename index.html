@@ -2,9 +2,34 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Página Teste</title>
+    <title>TODO LIST</title>
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/text.css" />
+    <link rel="stylesheet" href="css/960.css" />
+        <link rel="stylesheet" href="css/main.css" />
   </head>
   <body>
-    Esta página é uma página teste.
+    <div class="container_12">
+      <h1>TODO LIST</h1>
+      <div class="grid_12">
+        <p>
+          <form class="" action="index.html" method="post">
+            <input type="text" id="taskfield" name="task" value="" placeholder="Tarefa">
+            <br />
+            <button type="button" id="taskbutton" name="taskAdd">Adicionar Tarefa</button>
+          </form>
+        </p>
+      </div>
+      <div class="clear"></div>
+      <div class="grid_12 tasklistheader">
+        <h2>Tarefas</h2>
+      </div>
+      <div class="clear"></div>
+    </div>
+    <div class="container_12 tasklist" id="tasklist">
+      <p>Você não possui nenhuma tarefa</p>
+    </div>
+    <script type="text/javascript" src="model/task.js"></script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
