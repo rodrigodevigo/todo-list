@@ -1,8 +1,8 @@
 class Task {
-  constructor (code, description) {
+  constructor (description) {
     this.description = description;
     this.isCompleted = false;
-    this.code = code;
+    this.code = 0;
   }
 
   printInfo () {

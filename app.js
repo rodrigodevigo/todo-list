@@ -1,5 +1,7 @@
 
-var tasks = [];
+var tasks = new TaskCollection();
+
+var controller = new TaskController(tasks);
 
 var taskButton = document.querySelector("#taskbutton");
 
@@ -9,7 +11,7 @@ var task_render = function(task, index) {
     '  <p>'+task.printInfo()+'</p>'+
     '</div>'+
     '<div class="task_action">'+
-      '<button type="button" data-id="'+task.code+'" name="button">Completado ?</button>'+
+      '<button type="button" data-id="'+task.code+'" name="completeButton">Completado ?</button>'+
     '</div>'+
   '</div>';
   taskList += item;
@@ -17,12 +19,10 @@ var task_render = function(task, index) {
 
 
 taskButton.onclick = function (event) {
-  let task = document.querySelector("#taskfield").value;
-  taskObj = new Task(tasks.length, task);
-  tasks.push(taskObj);
+  let description = document.querySelector("#taskfield").value;
+  controller.createTask(description);
   taskList = '';
   var taskListObj = document.querySelector("#tasklist");
-  tasks.forEach (task_render);
-  console.log(taskList);
+  tasks.data.forEach (task_render);
   taskListObj.innerHTML = taskList;
 };
