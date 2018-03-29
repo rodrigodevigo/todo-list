@@ -11,10 +11,18 @@ var task_render = function(task, index) {
     '  <p>'+task.printInfo()+'</p>'+
     '</div>'+
     '<div class="task_action">'+
-      '<button type="button" data-id="'+task.code+'" name="completeButton">Completado ?</button>'+
+      '<button type="button" data-id="'+task.code+'" onclick="completeTask('+task.code+')" name="completeButton">Completado ?</button>'+
     '</div>'+
   '</div>';
   taskList += item;
+}
+
+function completeTask (code) {
+  controller.completeTask(code);
+  taskList = '';
+  var taskListObj = document.querySelector("#tasklist");
+  tasks.data.forEach (task_render);
+  taskListObj.innerHTML = taskList;
 }
 
 
