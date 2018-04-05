@@ -11,6 +11,7 @@ var task_render = function(task, index) {
     '  <p>'+task.printInfo()+'</p>'+
     '</div>'+
     '<div class="task_action">'+
+    '<button type="button" data-id="'+task.code+'" onclick="removeTask('+task.code+')" name="completeButton">Remover</button>'+
       '<button type="button" data-id="'+task.code+'" onclick="completeTask('+task.code+')" name="completeButton">Completado ?</button>'+
     '</div>'+
   '</div>';
@@ -19,6 +20,14 @@ var task_render = function(task, index) {
 
 function completeTask (code) {
   controller.completeTask(code);
+  taskList = '';
+  var taskListObj = document.querySelector("#tasklist");
+  tasks.data.forEach (task_render);
+  taskListObj.innerHTML = taskList;
+}
+
+function removeTask (code) {
+  controller.removeTask(code);
   taskList = '';
   var taskListObj = document.querySelector("#tasklist");
   tasks.data.forEach (task_render);

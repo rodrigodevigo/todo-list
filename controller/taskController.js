@@ -8,6 +8,10 @@ class TaskController {
     this.model.create(task);
   }
 
+  removeTask (code) {
+    this.model.delete(code);
+  }
+
   completeTask (code) {
     let task = this.model.find(code);
     task.isCompleted = true;
