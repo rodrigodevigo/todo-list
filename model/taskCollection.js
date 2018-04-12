@@ -19,7 +19,10 @@ class TaskCollection {
   delete (code) {
     // Ache o indice da tarefa cujo código é igual ao code e então use o splice
     // nesse indice
-    this.data.splice(code, 1);
+    var index = this.data.findIndex(function(task) {
+      return task.code == code;
+    });
+    this.data.splice(index, 1);
     return this;
   }
 };
